@@ -1,7 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
-import { useRef } from 'react';
 import {
-  HeaderSection,
   HeroSection,
   PartnersSection,
   ChooseSection,
@@ -9,7 +7,6 @@ import {
   ValueSection,
   FaqSection,
   ConnectSection,
-  FooterSection,
 } from '~/components';
 
 export const meta: MetaFunction = () => {
