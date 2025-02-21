@@ -87,11 +87,11 @@ const Services = () => {
         </motion.div>
       </LampContainer>
       {/* Scrollable Right Section */}
-      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 servicecards mx-5 relative'>
+      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gridcards mx-5 relative'>
         {servicesList.map((service) => (
           <div
             key={service.title}
-            className='p-10 flex flex-col items-center justify-start border border-white/30 rounded-xl group bg-nexora-shadow/50  servicecard'
+            className='p-10 flex flex-col items-center justify-start border border-white/30 rounded-xl group bg-nexora-shadow/50  gridcard'
           >
             <div className='flex gap-5'>
               <img

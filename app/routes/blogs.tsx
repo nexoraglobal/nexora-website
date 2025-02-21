@@ -42,11 +42,11 @@ const Blogs = () => {
       </LampContainer>
 
       {/* Scrollable Right Section */}
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 servicecards mx-5 relative">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gridcards mx-5 relative">
         {posts.map((post) => (
           <div
             key={post.id}
-            className="p-10 flex flex-col items-center justify-start border border-white/30 rounded-xl group bg-nexora-shadow/50  servicecard cursor-pointer"
+            className="p-10 flex flex-col items-center justify-start border border-white/30 rounded-xl group bg-nexora-shadow/50  gridcard cursor-pointer"
           >
             <a href={post.link} target="_blank" rel="noopener noreferrer">
               <div className="gap-5">
@@ -60,6 +60,18 @@ const Blogs = () => {
                   <div className="text-white/60 text-sm ">
                     {post.content}...
                   </div>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {post.categories.map((category, index) => (
+                    <div
+                      key={index}
+                      className="text-xs text-white/40 border border-white/30 rounded-full keyfeature"
+                    >
+                      <div className="relative z-10 h-full w-full flex items-center">
+                        {category}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </a>

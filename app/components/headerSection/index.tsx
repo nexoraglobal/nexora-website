@@ -48,7 +48,7 @@ export const HeaderSection = () => {
           </Link>
           <Link
             className='hover:text-nexora-pink text-white cursor-pointer transition-colors duration-300'
-            to={''}
+            to={'/projects'}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             Projects
