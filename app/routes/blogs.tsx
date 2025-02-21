@@ -1,23 +1,21 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { LampContainer } from "~/components/lamp";
 import { fetchAllMediumBlogPosts } from "~/services/blog-posts.services";
+import { useLoaderData } from "@remix-run/react";
+import { LoaderFunction } from "@remix-run/node";
+
+export const loader: LoaderFunction = async () => {
+  try {
+    const blogsList = await fetchAllMediumBlogPosts();
+    return Response.json(blogsList || []);
+  } catch (error) {
+    console.error("Error fetching Medium posts:", error);
+    return Response.json([]);
+  }
+};
 
 const Blogs = () => {
-  const [posts, setPosts] = useState<IBlog[]>([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const blogsList = await fetchAllMediumBlogPosts();
-        blogsList && setPosts(blogsList);
-      } catch (error) {
-        console.error("Error fetching Medium posts:", error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
+  const posts = useLoaderData<IBlog[]>();
 
   return (
     <div className=" text-white max-w-screen-xl mx-auto pb-10">
