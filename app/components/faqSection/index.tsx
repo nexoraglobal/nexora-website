@@ -29,7 +29,7 @@ export const FaqSection = () => {
         </div>
       </div>
       {/* Additional Support Section */}
-      <div className='p-10 text-center'>
+      <div id="contact-section" className='p-10 text-center'>
         <h1 className='text-white text-xl sm:text-2xl font-light'>
           Still have questions?
         </h1>

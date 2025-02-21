@@ -1,12 +1,28 @@
 import HeroBackground from "~/assets/backgrounds/hero.png";
 import { motion } from "framer-motion";
-import { useNavigate } from "@remix-run/react";
+import { useNavigate, useSearchParams } from "@remix-run/react";
+import { useEffect } from "react";
 
 export const HeroSection = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const contact = searchParams.get("contact");
+
+  useEffect(()=>{
+    if(contact === 'true'){
+      scrollToContactSection();
+    }
+  },[contact])
 
   const onClickNavigateToProjects = () => {
     navigate("/projects");
+  };
+
+  const scrollToContactSection = () => {
+    const section = document.getElementById("contact-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -49,7 +65,7 @@ export const HeroSection = () => {
           >
             Our Projects
           </button>
-          <button className="min-w-[146px] px-4 py-2  bg-nexora-pink text-white hover:bg-nexora-pink/80 transition-colors duration-300 rounded-lg">
+          <button className="min-w-[146px] px-4 py-2  bg-nexora-pink text-white hover:bg-nexora-pink/80 transition-colors duration-300 rounded-lg" onClick={scrollToContactSection}>
             Contact Us
           </button>
         </motion.div>
